@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export class CommandsHandler {
     manage(channel: string, command: string, username: string): Promise<string> {
         return new Promise((resolve, reject) => {
@@ -20,6 +22,9 @@ export class CommandsHandler {
                 case '!promo_altas':
                     resolve(this.makePromoAltas())
                     break
+                case '!chuck_norris':
+                    this.getChuckNorrisQuote().then(resolve)
+                    break 
                 default:
                     resolve(this.manageOtherCommands(command, username))
                     break
@@ -68,6 +73,17 @@ export class CommandsHandler {
             }
             return `${numberOfDices}d${numberOfFaces} = ${totalValue}`
         }
+    }
+
+    private getChuckNorrisQuote(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            axios.get('https://api.chucknorris.io/jokes/random').then(response => {
+                resolve(response.data.value)
+            }).catch(error => {
+                console.log(error)
+                resolve('')
+            })
+        })
     }
 
     private sendTwitterAccount(): string {

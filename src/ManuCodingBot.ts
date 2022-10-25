@@ -1,4 +1,3 @@
-import { start } from "repl"
 import { ChatClient } from "./ChatClient"
 
 export class ManuCodingBot {

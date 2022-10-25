@@ -24,6 +24,7 @@ export class ChatClient {
             },
             channels: [`${process.env.TWITCH_CHANNEL}`]
         })
+        
         this.connectionHandler = new ConnectionHandler()
         this.usersHandler = new UsersHandler()
         this.commandsHandler = new CommandsHandler()
