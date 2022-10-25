@@ -58,9 +58,13 @@ export class CommandsHandler {
             let totalValue = 0
             for(let dice = 0; dice < numberOfDices; dice++) {
                 const newValue = Math.floor(Math.random() * (numberOfFaces - 1 + 1) + 1)
-                console.log(`New value ${newValue}`)
                 totalValue += newValue
-                console.log(`New total value ${totalValue}`)
+
+                console.log('--------------------------------')
+                console.log(`Roll number: ${dice}`)
+                console.log(`Roll value: ${newValue}`)
+                console.log(`Roll summatory: ${totalValue}`)
+                console.log('--------------------------------')
             }
             return `${numberOfDices}d${numberOfFaces} = ${totalValue}`
         }
