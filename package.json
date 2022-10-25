@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "npx tsc",
-    "start": "node dist/index.js"
+    "start": "npx tsx && node dist/index.js",
+    "watch-and-run": "npx tsc -w & nodemon -q -w dist dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20",
     "tmi.js": "^1.8.5"
   },
   "devDependencies": {
