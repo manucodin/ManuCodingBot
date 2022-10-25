@@ -1,11 +1,12 @@
-import { channel } from "diagnostics_channel";
 import { Client } from "tmi.js";
 import { ConnectionHandler } from "./ConnectionHandler";
 import { CommandsHandler } from "./CommandsHandler";
+import { UsersHandler } from "./UsersHandler";
 
 export class ChatClient {
     private client: Client
     private connectionHandler: ConnectionHandler
+    private usersHandler: UsersHandler
     private commandsHandler: CommandsHandler
 
     constructor() {
@@ -24,6 +25,7 @@ export class ChatClient {
             channels: [`${process.env.TWITCH_CHANNEL}`]
         })
         this.connectionHandler = new ConnectionHandler()
+        this.usersHandler = new UsersHandler()
         this.commandsHandler = new CommandsHandler()
     }
 
@@ -31,6 +33,8 @@ export class ChatClient {
         this.client.connect().catch(console.log)
 
         this.client.on('connected', this.connectionHandler.manage)
+        this.client.on('join', this.usersHandler.manage)
+        this.client.on('part', this.usersHandler.manage)
         this.client.on('message', (channel, userstate, message, self) => {
             if (self) { return }
 
