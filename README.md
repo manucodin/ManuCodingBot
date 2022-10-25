@@ -4,8 +4,8 @@ Bienvenido al repositorio del bot de mi canal de Twitch. Siéntete libre de expl
 
 ### Comandos
 - ```!twitter```: Enlace a mi cuenta de Twitter
-- !github: Enlace a mi repositorio de Github (en el que estás ahora)
-- !discord: Enlace al servidor de discord de la comunidad
-- !instagram: Enlace a mi cuenta de Instagram
-- !chuck_norris: Quotes de Chuck Norris
-- !1d20: Tiras un dado de 20 caras. Este comando admite variaciones como 2d20, 1d6, 2d10, etc...
+- ```!github```: Enlace a mi repositorio de Github (en el que estás ahora)
+- ```!discord```: Enlace al servidor de discord de la comunidad
+- ```!instagram```: Enlace a mi cuenta de Instagram
+- ```!chuck_norris```: Quotes de Chuck Norris
+- ```!1d20```: Tiras un dado de 20 caras. Este comando admite variaciones como ```2d20```, ```1d6```, ```2d10```...
