@@ -7,4 +7,5 @@ try {
 	new ManuCodingBot().start()
 } catch (error) {
 	console.log(error)
+	console.log('Test')
 }
