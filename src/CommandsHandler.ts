@@ -28,7 +28,7 @@ export class CommandsHandler {
     }
 
     private manageOtherCommands(command: string, username: string): string {
-        if(/![0-9]*?d[0-9]*/.test(command)) {
+        if(/![0-9]*d[0-9]*/.test(command)) {
             return this.diceRoll(command, username)
         }
 
@@ -57,7 +57,10 @@ export class CommandsHandler {
         } else {
             let totalValue = 0
             for(let dice = 0; dice < numberOfDices; dice++) {
-                totalValue += Math.floor(Math.random() * (numberOfFaces - numberOfDices + 1) + numberOfDices)
+                const newValue = Math.floor(Math.random() * (numberOfFaces - 1 + 1) + 1)
+                console.log(`New value ${newValue}`)
+                totalValue += newValue
+                console.log(`New total value ${totalValue}`)
             }
             return `${numberOfDices}d${numberOfFaces} = ${totalValue}`
         }
