@@ -1,13 +1,13 @@
-import { ChatClient } from "./ChatClient"
+import { ChatClient } from './ChatClient'
 
 export class ManuCodingBot {
-    private client = new ChatClient()
+	private client = new ChatClient()
 
-    start() {
-        this.client.start()
-    }
+	start() {
+		this.client.start()
+	}
 
-    stop() {
-        this.client.stop()
-    }
+	stop() {
+		this.client.stop()
+	}
 }
