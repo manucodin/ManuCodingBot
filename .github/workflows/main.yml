@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Build without tests
+    name: Linting code
     runs-on: ubuntu-latest
     steps:
       - name: Lintin
-        run: npx prettier --write . 
+        run: npx prettier --write src/
