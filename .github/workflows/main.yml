@@ -8,6 +8,8 @@ jobs:
         name: Linting code
         runs-on: ubuntu-latest
         steps:
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v3.5.1
             - name: Install dependencies
               run: npm install
             - name: Lintin
