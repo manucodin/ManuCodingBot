@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "test",
-		"start": "npx prettier --write . && npx tsx && node dist/index.js",
-		"watch-and-run": "npx prettier --write . && npx tsc -w & nodemon -q -w dist dist/index.js"
+		"start": "npx prettier --write ./src && npx tsx && node dist/index.js",
+		"watch-and-run": "npx prettier --write ./src && npx tsc -w & nodemon -q -w dist dist/index.js"
 	},
 	"author": "",
 	"license": "ISC",
