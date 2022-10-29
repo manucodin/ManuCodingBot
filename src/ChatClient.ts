@@ -2,6 +2,7 @@ import { Client } from 'tmi.js'
 import { ConnectionHandler } from './ConnectionHandler'
 import { CommandsHandler } from './CommandsHandler'
 import { UsersHandler } from './UsersHandler'
+import { AppConstans } from './Constants'
 
 export class ChatClient {
 	private client: Client
@@ -19,10 +20,10 @@ export class ChatClient {
 				reconnect: true
 			},
 			identity: {
-				username: process.env.TWITCH_USER,
-				password: `oauth:${process.env.TWITCH_TOKEN}`
+				username: AppConstans.TWITCH_USER,
+				password: process.env.TWITCH_TOKEN
 			},
-			channels: [`${process.env.TWITCH_CHANNEL}`]
+			channels: [`${AppConstans.TWITCH_CHANNEL}`]
 		})
 
 		this.connectionHandler = new ConnectionHandler()

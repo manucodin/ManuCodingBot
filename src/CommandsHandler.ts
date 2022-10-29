@@ -1,9 +1,13 @@
 import axios from 'axios'
+import { AppConstans } from './Constants'
 
 export class CommandsHandler {
 	manage(channel: string, command: string, username: string): Promise<string> {
 		return new Promise((resolve, reject) => {
 			switch (command) {
+				case '!commands':
+					resolve(this.sendCommandsList())
+					break
 				case '!twitter':
 					resolve(this.sendTwitterAccount())
 					break
@@ -30,6 +34,34 @@ export class CommandsHandler {
 					break
 			}
 		})
+	}
+
+	private sendCommandsList(): string {
+		return `Puedes encontrar una lista de los comandos en la descripción del canal o en ${AppConstans.MANUCODING_BOT_REPOSITORY}`
+	}
+
+	private sendTwitterAccount(): string {
+		return `Mi cuenta de Twitter: ${AppConstans.TWITTER_URL}`
+	}
+
+	private sendGithubAccount(): string {
+		return `Mi repositorio de Github: ${AppConstans.GITHUB_URL}`
+	}
+
+	private sendDiscordServer(): string {
+		return `Discord de la comunidad: ${AppConstans.DISCORD}`
+	}
+
+	private sendInstagramAccount(): string {
+		return `Mi cuenta de Instagram: ${AppConstans.INSTAGRAM_URL}`
+	}
+
+	private makePromoLuis(): string {
+		return `Canal de Twitch de @${AppConstans.LUIS_LLAMAS_USER}: ${AppConstans.LUIS_LLAMAS_TWITCH}`
+	}
+
+	private makePromoAltas(): string {
+		return `Canal de Twitch de @${AppConstans.ALTAS_USER}: ${AppConstans.ALTAS_TWITCH}`
 	}
 
 	private manageOtherCommands(command: string, username: string): string {
@@ -78,7 +110,7 @@ export class CommandsHandler {
 	private getChuckNorrisQuote(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			axios
-				.get('https://api.chucknorris.io/jokes/random')
+				.get(AppConstans.CHUCK_NORRIS_QUOUTES_ENDPOTIN)
 				.then(response => {
 					resolve(response.data.value)
 				})
@@ -87,29 +119,5 @@ export class CommandsHandler {
 					resolve('')
 				})
 		})
-	}
-
-	private sendTwitterAccount(): string {
-		return `Mi cuenta de Twitter: ${process.env.TWITTER_URL}`
-	}
-
-	private sendGithubAccount(): string {
-		return `Mi repositorio de Github: ${process.env.GITHUB_URL}`
-	}
-
-	private sendDiscordServer(): string {
-		return `Discord de la comunidad: ${process.env.DISCORD}`
-	}
-
-	private sendInstagramAccount(): string {
-		return `Mi cuenta de Instagram: ${process.env.INSTAGRAM_URL}`
-	}
-
-	private makePromoLuis(): string {
-		return `Canal de Twitch de @${process.env.LUIS_LLAMAS_USER}: ${process.env.LUIS_LLAMAS_TWITCH}`
-	}
-
-	private makePromoAltas(): string {
-		return `Canal de Twitch de @${process.env.ALTAS_USER}: ${process.env.ALTAS_TWITCH}`
 	}
 }
